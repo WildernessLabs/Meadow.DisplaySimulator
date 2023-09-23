@@ -1,0 +1,42 @@
+<Window
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:DisplaySimulator.ViewModels"
+	xmlns:local="clr-namespace:DisplaySimulator"
+    mc:Ignorable="d" 
+    x:Class="DisplaySimulator.Views.MainWindow"
+    Icon="/Assets/avalonia-logo.ico"
+    Title="Meadow in Avalonia">
+
+	<Window.DataContext>
+		<vm:MainWindowViewModel />
+	</Window.DataContext>
+
+	<Grid x:Name="mainGrid">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+
+		<Border x:Name="displayBorder" BorderBrush="DarkGray" BorderThickness="1" Padding="1" Grid.Row="0" Grid.Column="0" />
+
+		<StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10">
+			<ComboBox Name="DisplayComboBox"
+                  Grid.Row="0" Grid.Column="1"
+                  Width="200" >
+				<ComboBoxItem Content="ILI9341"/>
+				<ComboBoxItem Content="SSD1306"/>
+				<ComboBoxItem Content="SSD1309"/>
+				<ComboBoxItem Content="ST7789"/>
+			</ComboBox>
+
+			<Button Name="IncreaseScaleButton" Content="Zoom in (+)"/>
+			<Button Name="DecreaseScaleButton" Content="Zoom out (-)"/>
+		</StackPanel>
+	</Grid>
+</Window>
